@@ -22,7 +22,8 @@
     "whatsapp-md",
     "themysticbot",
     "themystic-bot",
-    "themystic-bot-md"],
+    "themystic-bot-md"
+  ],
   "image": "heroku/nodejs",
   "buildpacks": [
     {
@@ -33,6 +34,6 @@
     },
     {
       "url": "https://github.com/bogini/heroku-buildpack-graphicsmagick"
-    }    
- ]
+    }
+  ]
 }
