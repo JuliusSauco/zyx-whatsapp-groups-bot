@@ -18,7 +18,7 @@ say("ZYCRYX BOT\nWhatsApp Bot for Groups 🖥", {
   align: "center",
   gradient: ["red", "magenta"],
 });
-say(`Bot creado por Bruno Sobrino`, {
+say(`Chat bot - by Julius Sauco`, {
   font: "console",
   align: "center",
   gradient: ["red", "magenta"],

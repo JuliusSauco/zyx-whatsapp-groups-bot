@@ -229,7 +229,7 @@ function _0x54e9() {
 
 /*------------------------------------------------*/
 
-global.authFile = `MysticSession`;
+global.authFile = `session`;
 const { state, saveState, saveCreds } = await useMultiFileAuthState(
   global.authFile
 );
@@ -264,7 +264,7 @@ const connectionOptions = {
       const msg = await store.loadMessage(key.remoteJid, key.id);
       return msg.message || undefined;
     }
-    return { conversation: "hello, i'm BrunoSobrino" };
+    return { conversation: "Hello, I'm Zyx" };
   },
   msgRetryCounterMap,
   logger: pino({ level: "silent" }),
@@ -306,13 +306,13 @@ function clearTmp() {
 
 function purgeSession() {
   let prekey = [];
-  let directorio = readdirSync("./MysticSession");
+  let directorio = readdirSync("./session");
   let filesFolderPreKeys = directorio.filter((file) => {
     return file.startsWith("pre-key-");
   });
   prekey = [...prekey, ...filesFolderPreKeys];
   filesFolderPreKeys.forEach((files) => {
-    unlinkSync(`./MysticSession/${files}`);
+    unlinkSync(`./session/${files}`);
   });
 }
 function purgeSessionSB() {
@@ -333,7 +333,7 @@ function purgeSessionSB() {
 }
 
 function purgeOldFiles() {
-  const directories = ["./MysticSession/", "./jadibts/"];
+  const directories = ["./session/", "./jadibts/"];
   const oneHourAgo = Date.now() - 60 * 60 * 1000;
   directories.forEach((dir) => {
     readdirSync(dir, (err, files) => {
@@ -617,7 +617,7 @@ setInterval(async () => {
   const status = global.db.data.settings[conn.user.jid] || {};
   let _uptime = process.uptime() * 1000;
   let uptime = clockString(_uptime);
-  let bio = `🤖 ᴛɪᴇᴍᴘᴏ ᴀᴄᴛɪᴠᴏ: ${uptime} ┃ 👑 ʙʏ ʙʀᴜɴᴏ sᴏʙʀɪɴᴏ ┃ 🔗 ᴄᴜᴇɴᴛᴀs ᴏғᴄ: https://www.atom.bio/theshadowbrokers-team`;
+  let bio = `🤖 Tiempo activo: ${uptime} ┃ By Julius Sauco `;
   await conn.updateProfileStatus(bio).catch((_) => _);
 }, 60000);
 function clockString(ms) {
@@ -630,5 +630,5 @@ function clockString(ms) {
     .join("");
 }
 _quickTest()
-  .then(() => conn.logger.info(`Ƈᴀʀɢᴀɴᴅᴏ．．．\n`))
+  .then(() => conn.logger.info(`CARGANDO ...\n`))
   .catch(console.error);
