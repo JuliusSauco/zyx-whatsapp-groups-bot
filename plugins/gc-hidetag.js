@@ -37,7 +37,7 @@ let handler = async (m, { conn, text, participants, isOwner, isAdmin }) => {
       var mediax = await quoted.download?.();
       conn.sendMessage(
         m.chat,
-        { image: mediax, mentions: users, caption: htextos, mentions: users },
+        { image: mediax, mentions: users, caption: htextos },
         { quoted: m }
       );
     } else if (isMedia && quoted.mtype === "videoMessage" && htextos) {

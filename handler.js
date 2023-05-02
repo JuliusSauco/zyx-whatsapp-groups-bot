@@ -1508,7 +1508,6 @@ export async function participantsUpdate({ id, participants, action }) {
   let text = "";
   switch (action) {
     case "add":
-    case "remove":
       if (chat.welcome) {
         let groupMetadata =
           (await this.groupMetadata(id)) || (conn.chats[id] || {}).metadata;
@@ -1529,21 +1528,18 @@ export async function participantsUpdate({ id, participants, action }) {
               ) || {};
             const isBotAdminNn = botTt2?.admin === "admin" || false;
             text = (
-              action === "add"
-                ? (
-                    chat.sWelcome ||
-                    this.welcome ||
-                    conn.welcome ||
-                    "Welcome, @user!"
+                  (
+                      chat.sWelcome ||
+                      this.welcome ||
+                      conn.welcome ||
+                      "Welcome, @user!"
                   )
-                    .replace("@subject", await this.getName(id))
-                    .replace(
-                      "@desc",
-                      groupMetadata.desc?.toString() || "*𝚂𝙸𝙽 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝙲𝙸𝙾𝙽*"
-                    )
-                : chat.sBye || this.bye || conn.bye || "Bye, @user!"
+                      .replace("@subject", await this.getName(id))
+                      .replace(
+                          "@desc",
+                          groupMetadata.desc?.toString() || "*𝚂𝙸𝙽 𝙳𝙴𝚂𝙲𝚁𝙸𝙿𝙲𝙸𝙾𝙽*"
+                      )
             ).replace("@user", "@" + user.split("@")[0]);
-
             if (
               userPrefix &&
               chat.antiArab &&
@@ -1703,22 +1699,6 @@ export async function deleteUpdate(message) {
     if (!msg) return;
     let chat = global.db.data.chats[msg.chat] || {};
     if (chat.delete) return;
-    await this.reply(
-      msg.chat,
-      `
-━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━
-*■ Nombre:* @${participant.split`@`[0]}
-*■ Enviando el mensaje..*
-*■ Para desactivar esta función escriba el comando:*
-*—◉ #disable antidelete*
-*—◉ #enable delete*
-━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━
-`.trim(),
-      msg,
-      {
-        mentions: [participant],
-      }
-    );
     this.copyNForward(msg.chat, msg).catch((e) => console.log(e, msg));
   } catch (e) {
     console.error(e);

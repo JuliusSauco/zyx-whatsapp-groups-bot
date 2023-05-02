@@ -5,7 +5,7 @@ let handler = async (
 ) => {
   try {
     let vn = "./media/menu.mp3";
-    let pp = imagen4;
+    let pp = imagen1;
     let img = await (
       await fetch(
         "https://www.paidmembershipspro.com/wp-content/uploads/2017/07/PayPal-Express.png"
@@ -229,7 +229,7 @@ ${readMore}
     );
   }
 };
-handler.command = /^(menuadm|menú-admin|menuadmin|menu-admin|cmdadm|cmd-adm)$/i;
+handler.command = /^(menuadm|menu-adm|menú-admin|menuadmin|menu-admin|cmdadm|cmd-adm)$/i;
 handler.exp = 50;
 handler.admin = handler.group = handler.botAdmin = true;
 handler.fail = null;

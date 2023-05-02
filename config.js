@@ -8,7 +8,6 @@ import axios from "axios";
 import moment from "moment-timezone";
 
 global.owner = [
-  ["51922076667", "Julius Sauco - Work", true],
   ["51955715506", "JUlius Sauco - Groups", true],
   ["51937265467", "Zycryx Business", true],
   ["51904264739", "JS Cibersecurity", true],

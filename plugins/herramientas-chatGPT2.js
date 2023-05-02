@@ -109,8 +109,6 @@ handler.command = [
   "openai2",
   "chatgpt2",
   "ia2",
-  "robot2",
-  "Mystic",
-  "MysticBot",
+  "robot2"
 ];
 export default handler;
