@@ -95,6 +95,5 @@ let handler = async (m, { conn, text, participants, isOwner, isAdmin }) => {
   }
 };
 handler.command = /^(hidetag|notificar|notify)$/i;
-handler.group = true;
-handler.admin = true;
+handler.rowner = handler.botAdmin = handler.group = true;
 export default handler;

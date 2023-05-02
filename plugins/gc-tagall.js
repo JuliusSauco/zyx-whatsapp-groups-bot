@@ -21,5 +21,5 @@ let handler = async (
 handler.help = ["tagall <mesaje>", "invocar <mesaje>"];
 handler.tags = ["group"];
 handler.command = /^(tagall|invocar|invocacion|todos|invocación)$/i;
-handler.botAdmin = handler.admin = handler.group = true;
+handler.rowner = handler.botAdmin = handler.group = true;
 export default handler;
